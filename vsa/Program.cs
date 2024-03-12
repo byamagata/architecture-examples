@@ -23,3 +23,13 @@ var app = builder.Build();
 app.MapGroup("/users").MapUsersApi();
 
 app.Run();
+
+
+/// <summary>
+/// Only for mocking purposes so that you can run this OTB.
+/// </summary>
+public class MockUserStore
+{
+    public record User(string Id, string Name, string Email, string Password);
+    public List<User> Users { get; set; } = new List<User>();
+}
