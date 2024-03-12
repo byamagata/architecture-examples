@@ -7,7 +7,7 @@ public record CreateUserResponse(string Id);
 
 public class CreateUserEndpoint
 {
-    public static async Task<IResult> CreateUserAsync([FromBody] CreateUserRequest request, ICreateUserManager createUserManager)
+    public static async Task<IResult> CreateUserAsync([FromBody] CreateUserRequest request, [FromServices] ICreateUserManager createUserManager)
     {   
         if (string.IsNullOrWhiteSpace(request.Name))
         {
