@@ -28,7 +28,7 @@ app.Run();
 /// <summary>
 /// Only for mocking purposes so that you can run this OTB.
 /// </summary>
-public class MockUserStore
+public class MockUserStoreConnection
 {
     public record User(string Id, string Name, string Email, string PhoneNumber);
     public static List<User> Users { get; set; } = new List<User>();

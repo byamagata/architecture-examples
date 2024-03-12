@@ -34,7 +34,7 @@ public class UserStore : IUserStore
     public async Task<bool> DeleteUserAsync(string userId)
     {
         // Delete user from database
-        MockUserStore.Users.RemoveAll(u => u.Id == userId);
+        MockUserStoreConnection.Users.RemoveAll(u => u.Id == userId);
         return await Task.FromResult(true);
     }
 }

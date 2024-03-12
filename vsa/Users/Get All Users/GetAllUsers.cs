@@ -36,6 +36,6 @@ public class UserStore : IUserStore
     public async Task<List<User>> GetAllUsersAsync()
     {
         // Get all users from database
-        return await Task.FromResult(MockUserStore.Users.Select(u => new User(u.Id, u.Name, u.Email, u.PhoneNumber)).ToList());
+        return await Task.FromResult(MockUserStoreConnection.Users.Select(u => new User(u.Id, u.Name, u.Email, u.PhoneNumber)).ToList());
     }
 }

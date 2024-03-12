@@ -41,8 +41,8 @@ public class UserStore : IUserStore
     public async Task<bool> UpdateUserAsync(User updatedUser)
     {
         // Update user in database
-        MockUserStore.Users.RemoveAll(u => u.Id == updatedUser.Id);
-        MockUserStore.Users.Add(new MockUserStore.User(updatedUser.Id, updatedUser.Name, updatedUser.Email, updatedUser.PhoneNumber));
+        MockUserStoreConnection.Users.RemoveAll(u => u.Id == updatedUser.Id);
+        MockUserStoreConnection.Users.Add(new MockUserStoreConnection.User(updatedUser.Id, updatedUser.Name, updatedUser.Email, updatedUser.PhoneNumber));
         return await Task.FromResult(true);
     }
 }
