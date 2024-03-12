@@ -35,10 +35,12 @@ public interface IUserStore
 
 public class UserStore : IUserStore
 {
-    public async Task<User> GetUserAsync(string userId)
-    {
+    public async Task<User> GetUserAsync(string userId) =>
         // Get user from database
-        return await Task.FromResult(new User("1", "John Doe", "john.doe@example.com", "1234567890"));
-    }
+        await Task.FromResult(
+            MockUserStore.Users.Where(u => u.Id == userId)
+                                ?.Select(u => new User(u.Id, u.Name, u.Email, u.PhoneNumber))
+                                .FirstOrDefault())
+                                ?? throw new Exception("User not found");
 }
 

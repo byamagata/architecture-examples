@@ -30,6 +30,6 @@ app.Run();
 /// </summary>
 public class MockUserStore
 {
-    public record User(string Id, string Name, string Email, string Password);
-    public List<User> Users { get; set; } = new List<User>();
+    public record User(string Id, string Name, string Email, string PhoneNumber);
+    public static List<User> Users { get; set; } = new List<User>();
 }

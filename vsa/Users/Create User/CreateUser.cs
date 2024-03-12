@@ -59,6 +59,8 @@ public class UserStore : IUserStore
     public async Task<bool> CreateUserAsync(User user)
     {
         // Create user in database
+        var newUser = new MockUserStore.User(user.Id, user.Name, user.Email, user.PhoneNumber);
+        MockUserStore.Users.Add(newUser);
         return await Task.FromResult(true);
     }
 }
